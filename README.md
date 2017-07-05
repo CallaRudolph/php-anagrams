@@ -13,4 +13,6 @@ Temporary!
 
  program will test a word against a single word and return either match or no match
 
- will test against multiple words and return either no matches or words that match
+ will test against multiple words and return either no matches or  match
+
+ when match found, program will display the matching word or words along with original match found message

@@ -62,5 +62,20 @@
             //Assert
             $this->assertEquals("Anagram Spotted!", $result);
         }
+
+        function test_checkForAnagrams_returnMatch()
+        {
+            //Arrange
+            $test_AnagramSpotter = new AnagramSpotter;
+            $input_word = "rat";
+            $input_check_word = "tar";
+            $input_check_word2 = "art";
+
+            //Act
+            $result = $test_AnagramSpotter->checkForAnagrams($input_word, $input_check_word, $input_check_word2);
+
+            //Assert
+            $this->assertEquals("Anagram Spotted: tar, art", $result);
+        }
     }
 ?>
