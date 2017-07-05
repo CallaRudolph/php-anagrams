@@ -28,5 +28,19 @@
             //Assert
             $this->assertEquals("pail", $result);
         }
+
+        function test_checkForAnagrams_lowerCaseAll()
+        {
+            //Arrange
+            $test_AnagramSpotter = new AnagramSpotter;
+            $input_word = "Pail";
+            $input_check_word = "cArrot";
+
+            //Act
+            $result = $test_AnagramSpotter->checkForAnagrams($input_word, $input_check_word);
+
+            //Assert
+            $this->assertEquals("pail", "carrot", $result);
+        }
     }
 ?>
