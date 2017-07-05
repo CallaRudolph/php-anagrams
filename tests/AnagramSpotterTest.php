@@ -7,8 +7,8 @@
         {
             //Arrange
             $test_AnagramSpotter = new AnagramSpotter;
-            $input_word = "th3t#";
-            $input_check_array = ["p@il3e", "l33tz"];
+            $input_word = "t6%s";
+            $input_check_array = ["p&1l", "l3%t"];
 
             //Act
             $result = $test_AnagramSpotter->checkForAnagrams($input_word, $input_check_array);
@@ -17,20 +17,20 @@
             $this->assertEquals("Please do not enter numbers or special characters", $result);
         }
 
-        // function test_checkForAnagrams_lowerCaseAll()
-        // {
-        //     //Arrange
-        //     $test_AnagramSpotter = new AnagramSpotter;
-        //     $input_word = "Rat";
-        //     $input_check_array = ["taR"];
-        //
-        //     //Act
-        //     $result = $test_AnagramSpotter->checkForAnagrams($input_word, $input_check_array);
-        //
-        //     //Assert
-        //     $this->assertEquals("Anagram Spotted!", $result);
-        // }
-        //
+        function test_checkForAnagrams_lowerCaseAll()
+        {
+            //Arrange
+            $test_AnagramSpotter = new AnagramSpotter;
+            $input_word = "Rat";
+            $input_check_array = ["taR"];
+
+            //Act
+            $result = $test_AnagramSpotter->checkForAnagrams($input_word, $input_check_array);
+
+            //Assert
+            $this->assertEquals(["rat, tar"], $result);
+        }
+
         // function test_checkForAnagrams_oneMatch()
         // {
         //     //Arrange
