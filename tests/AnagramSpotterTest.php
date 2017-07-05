@@ -30,5 +30,19 @@
             //Assert
             $this->assertEquals(["pail", "carrot"], $result);
         }
+
+        function test_checkForAnagrams_oneMatch()
+        {
+            //Arrange
+            $test_AnagramSpotter = new AnagramSpotter;
+            $input_word = "Bread";
+            $input_check_word = "bearD";
+
+            //Act
+            $result = $test_AnagramSpotter->checkForAnagrams($input_word, $input_check_word);
+
+            //Assert
+            $this->assertEquals("Anagram Spotted!", $result);
+        }
     }
 ?>
