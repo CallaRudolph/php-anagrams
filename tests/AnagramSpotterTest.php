@@ -16,18 +16,17 @@
             $this->assertEquals("Please do not enter numbers or special characters", $result);
         }
 
-        function test_checkForAnagrams_singleWord()
+        function test_checkForAnagrams_lowerCase()
         {
             //Arrange
             $test_AnagramSpotter = new AnagramSpotter;
-            $input_word = "pail";
-            $input_checkWord = "carrot";
+            $input_word = "Pail";
 
             //Act
-            $result = $test_AnagramSpotter->checkForAnagrams($input_word, $input_checkWord);
+            $result = $test_AnagramSpotter->checkForAnagrams($input_word);
 
             //Assert
-            $this->assertEquals("There are no possible anagrams", $result);
+            $this->assertEquals("pail", $result);
         }
     }
 ?>
