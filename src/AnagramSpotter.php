@@ -1,33 +1,33 @@
 <?php
     class AnagramSpotter
     {
-        function checkForAnagrams($input_word, $input_check_word, $input_check_word2)
+        function checkForAnagrams($input_word, $input_check_array)
         {
+            $answer = [];
             $input_word_lower = strtolower($input_word);
-            $input_check_word_lower = strtolower($input_check_word);
-            $input_check_word_lower2 = strtolower($input_check_word2);
-            $string = [$input_word_lower, $input_check_word_lower, $input_check_word_lower2];
+            $array_of_words = implode(" ", $input_check_array);
+            $array_input_word = str_split($input_word_lower);
 
-            if (preg_grep('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $string) || (ctype_digit($string)))
+            if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $input_word_lower) || (ctype_digit($input_word_lower)))
               {
-                  $string = "Please do not enter numbers or special characters";
+                  $answer = "Please do not enter numbers or special characters";
               } else {
-                  $array_input_word = str_split($input_word_lower);
-                  $array_input_check_word = str_split($input_check_word_lower);
-                  $array_input_check_word2 = str_split($input_check_word_lower2);
+                  foreach ($array_of_words as $word) {
+                      $word_lower_case = strtolower($word);
+                      $word_split = str_split($word_lower_case);
 
-                  sort($array_input_word);
-                  sort($array_input_check_word);
-                  sort($array_input_check_word2);
+                      sort($array_input_word);
+                      sort($word_split);
 
-                  if (($array_input_word == $array_input_check_word) || ($array_input_word == $array_input_check_word2))
-                  {
-                      $string = "Anagram Spotted!";
-                  } else {
-                        $string = "No anagram found";
-                  }
+                      if ($array_input_word == $word_split)
+                      {
+                          $answer = ["Anagram Spotted!"];
+                      } else {
+                            $answer = ["No anagram found"];
+                      }
+                  }   
               }
-            return $string;
+            return $answer;
         }
     }
 ?>
