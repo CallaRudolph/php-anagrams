@@ -5,7 +5,8 @@
         {
             $input_word_lower = strtolower($input_word);
             $input_check_word_lower = strtolower($input_check_word);
-            $string = [$input_word_lower, $input_check_word_lower];
+            $input_check_word_lower2 = strtolower($input_check_word2);
+            $string = [$input_word_lower, $input_check_word_lower, $input_check_word_lower2];
 
             if (preg_grep('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $string) || (ctype_digit($string)))
               {
@@ -13,10 +14,13 @@
               } else {
                   $array_input_word = str_split($input_word_lower);
                   $array_input_check_word = str_split($input_check_word_lower);
+                  $array_input_check_word2 = str_split($input_check_word_lower2);
 
                   sort($array_input_word);
                   sort($array_input_check_word);
-                  if ($array_input_word == $array_input_check_word)
+                  sort($array_input_check_word2);
+
+                  if (($array_input_word == $array_input_check_word) || ($array_input_word == $array_input_check_word2))
                   {
                       $string = "Anagram Spotted!";
                   } else {
