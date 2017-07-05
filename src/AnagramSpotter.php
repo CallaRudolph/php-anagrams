@@ -3,13 +3,14 @@
     {
         function checkForAnagrams($input_word)
         {
-            $string = $input_word;
+            $lowercase = strtolower($input_word);
+            $string = $lowercase;
 
-            if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $string) || (ctype_digit($string)))
+            if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $lowercase) || (ctype_digit($lowercase)))
               {
-                $string = "Please do not enter numbers or special characters";
+                $lowercase = "Please do not enter numbers or special characters";
               }
-              return $string;
+              return $lowercase;
         }
     }
 ?>
