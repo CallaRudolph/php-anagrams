@@ -7,7 +7,7 @@
         {
             //Arrange
             $test_AnagramSpotter = new AnagramSpotter;
-            $input_word = "l33t#";
+            $input_word = "th3t#";
 
             //Act
             $result = $test_AnagramSpotter->checkForAnagrams($input_word);
