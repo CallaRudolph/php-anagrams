@@ -9,9 +9,10 @@
             $test_AnagramSpotter = new AnagramSpotter;
             $input_word = "th3t#";
             $input_check_word = "p@il3e";
+            $input_check_word2 = "l33tz";
 
             //Act
-            $result = $test_AnagramSpotter->checkForAnagrams($input_word, $input_check_word);
+            $result = $test_AnagramSpotter->checkForAnagrams($input_word, $input_check_word, $input_check_word2);
 
             //Assert
             $this->assertEquals("Please do not enter numbers or special characters", $result);
@@ -21,11 +22,12 @@
         {
             //Arrange
             $test_AnagramSpotter = new AnagramSpotter;
-            $input_word = "Bread";
-            $input_check_word = "bearD";
+            $input_word = "rat";
+            $input_check_word = "tar";
+            $input_check_word2 = "art";
 
             //Act
-            $result = $test_AnagramSpotter->checkForAnagrams($input_word, $input_check_word);
+            $result = $test_AnagramSpotter->checkForAnagrams($input_word, $input_check_word, $input_check_word2);
 
             //Assert
             $this->assertEquals("Anagram Spotted!", $result);
@@ -35,11 +37,27 @@
         {
             //Arrange
             $test_AnagramSpotter = new AnagramSpotter;
-            $input_word = "Bread";
-            $input_check_word = "Beard";
+            $input_word = "rat";
+            $input_check_word = "tar";
+            $input_check_word2 = "art";
 
             //Act
-            $result = $test_AnagramSpotter->checkForAnagrams($input_word, $input_check_word);
+            $result = $test_AnagramSpotter->checkForAnagrams($input_word, $input_check_word, $input_check_word2);
+
+            //Assert
+            $this->assertEquals("Anagram Spotted!", $result);
+        }
+
+        function test_checkForAnagrams_multipleMatch()
+        {
+            //Arrange
+            $test_AnagramSpotter = new AnagramSpotter;
+            $input_word = "rat";
+            $input_check_word = "tar";
+            $input_check_word2 = "art";
+
+            //Act
+            $result = $test_AnagramSpotter->checkForAnagrams($input_word, $input_check_word, $input_check_word2);
 
             //Assert
             $this->assertEquals("Anagram Spotted!", $result);
